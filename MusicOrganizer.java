@@ -26,7 +26,7 @@ public class MusicOrganizer
         tracks = new ArrayList<Track>();
         player = new MusicPlayer();
         reader = new TrackReader();
-         reproduciendo= false;
+        reproduciendo= false;
         readLibrary("audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
@@ -56,12 +56,17 @@ public class MusicOrganizer
      */
     public void playTrack(int index)
     {
-        if(indexValid(index)) {
-            Track track = tracks.get(index);
-             reproduciendo = true;
-            track.incrementaplayCount();
-            player.startPlaying(track.getFilename());
-            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+        if(reproduciendo= true){
+            System.out.println("hay una cancion en ejecucion imposible reproducir pare primero la otra");
+        }
+        else{
+            if(indexValid(index)) {
+                Track track = tracks.get(index);
+                reproduciendo = true;
+                track.incrementaplayCount();
+                player.startPlaying(track.getFilename());
+                System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+            }
         }
     }
 
@@ -139,10 +144,15 @@ public class MusicOrganizer
      */
     public void playFirst()
     {
-        if(tracks.size() > 0) {
-            tracks.get(0).incrementaplayCount();
-             reproduciendo = true;
-            player.startPlaying(tracks.get(0).getFilename());
+        if(reproduciendo= true){
+            System.out.println("hay una cancion en ejecucion imposible reproducir pare primero la otra");
+        }
+        else{
+            if(tracks.size() > 0) {
+                tracks.get(0).incrementaplayCount();
+                reproduciendo = true;
+                player.startPlaying(tracks.get(0).getFilename());
+            }
         }
     }
 
@@ -152,7 +162,7 @@ public class MusicOrganizer
     public void stopPlaying()
     {
         player.stop();
-         reproduciendo = false;
+        reproduciendo = false;
     }
 
     /**
@@ -196,13 +206,14 @@ public class MusicOrganizer
             tracks.get(index).darAno(ano);
         }
     }
-    
+
     public void isPlaying(){
-     if( reproduciendo =true) {
-         System.out.println("hay una cancion en ejecucion");
+        if( reproduciendo =true) {
+            System.out.println("hay una cancion en ejecucion");
         }
-     else {
-         System.out.println("no hay una cancion en ejecucion");
-         {
+        else {
+            System.out.println("no hay una cancion en ejecucion");
+
+        }
     }
 }

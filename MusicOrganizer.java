@@ -107,6 +107,19 @@ public class MusicOrganizer
     }
     
     /**
+     * busca un texto en el titulo de las canciones mestra por pantalla  si hay coincidencias
+     */
+    public void buscarTitulo(String textoABuscar){
+         for(Track track : tracks) {
+             String title = track.getTitle();
+             if(title.contains(textoABuscar)){
+                  System.out.println(track.getDetails());
+            }
+        }
+    }
+    
+    
+    /**
      * Remove a track from the collection.
      * @param index The index of the track to be removed.
      */
@@ -170,4 +183,6 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
+    
+    
 }

@@ -15,6 +15,9 @@ public class Track
     private String filename;
     //almacena el numero de reproducciones de una cancion.
     private int  playCount;
+    // almacena el año de publicacion de la cancion.
+    private int ano;
+
     /**
      * Constructor for objects of class Track.
      * @param artist The track's artist.
@@ -25,8 +28,9 @@ public class Track
     {
         setDetails(artist, title, filename);
         playCount =0;
+        ano =0;
     }
-    
+
     /**
      * Constructor for objects of class Track.
      * It is assumed that the file name cannot be
@@ -36,9 +40,10 @@ public class Track
     public Track(String filename)
     {
         setDetails("unknown", "unknown", filename);
-          playCount =0;
+        playCount =0;
+        ano =0;
     }
-    
+
     /**
      * Return the artist.
      * @return The artist.
@@ -47,7 +52,7 @@ public class Track
     {
         return artist;
     }
-    
+
     /**
      * Return the title.
      * @return The title.
@@ -56,7 +61,7 @@ public class Track
     {
         return title;
     }
-    
+
     /**
      * Return the file name.
      * @return The file name.
@@ -65,16 +70,16 @@ public class Track
     {
         return filename;
     }
-        
+
     /**
      * Return details of the track: artist, title and file name.
      * @return The track's details.
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")+ reproducciones : " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ")+ reproducciones : " + playCount + "año :"+ano;
     }
-    
+
     /**
      * Set details of the track.
      * @param artist The track's artist.
@@ -87,17 +92,26 @@ public class Track
         this.title = title;
         this.filename = filename;
     }
+
     /**
      * resetea el contador de reproducciones
      */
     public void borrar(){
         playCount = 0;
     }
-    
+
     /**
-     * resetea el contador de reproducciones
+     * incrementa el contador de reproducciones
      */
-   public void incrementaplayCount(){
+    public void incrementaplayCount(){
         playCount ++;
+    }
+
+    /**
+     * da el año a una cancion
+     */
+    public void darAno(int nuevoAno){
+        ano = nuevoAno;
+
     }
 }
